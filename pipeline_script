@@ -1,0 +1,40 @@
+               pipeline {
+    tools{
+        jdk 'java_home'
+        maven 'mvn_home'
+    }
+    agent any
+
+    stages {
+        stage('gitclone') {
+            steps {
+                git 'https://github.com/Shradha1907/src-pom-from-maven_devops.git'
+                echo 'git cloned'
+            }
+        }
+        stage('compile') {
+            steps {
+                sh'mvn compile'
+                echo 'mvn compile'
+            }
+        }
+        stage('test') {
+            steps {
+                sh'mvn test'
+                echo 'mvn test'
+            }
+        }
+        stage('package') {
+            steps {
+                sh'mvn package'
+                echo 'mvn packaged'
+            }
+        }
+        stage('instaLL') {
+            steps {
+                sh'mvn install'
+                echo 'mvn install'
+            }
+        }
+    }
+}

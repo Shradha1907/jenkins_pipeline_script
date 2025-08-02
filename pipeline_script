@@ -15,13 +15,13 @@
         stage('compile') {
             steps {
                 sh'mvn compile'
-                echo 'mvn compile'
+                echo 'mvn compiled'
             }
         }
         stage('test') {
             steps {
                 sh'mvn test'
-                echo 'mvn test'
+                echo 'mvn tested'
             }
         }
         stage('package') {
@@ -33,7 +33,7 @@
         stage('instaLL') {
             steps {
                 sh'mvn install'
-                echo 'mvn install'
+                echo 'mvn installed'
             }
         }
     }
